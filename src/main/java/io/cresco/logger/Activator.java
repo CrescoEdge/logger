@@ -113,7 +113,7 @@ public final class Activator
         }
 
         ConfigurationAdmin configAdmin = getConfigurationAdmin( bundleContext );
-        Configuration configuration = configAdmin.getConfiguration( "org.ops4j.pax.logging", null );
+        Configuration loggerConfig = configAdmin.getConfiguration( "org.ops4j.pax.logging", null );
 
         Hashtable<String, Object> log4jProps = new Hashtable<>();
         log4jProps.put( "log4j.rootLogger", rootLogLevel + ", CONSOLE, FILE" );
@@ -154,7 +154,8 @@ public final class Activator
         log4jProps.put( "log4j.logger.org.osgi","OFF");
         log4jProps.put( "log4j.logger.osgi","OFF");
 
-        configuration.update( log4jProps );
+        loggerConfig.update( log4jProps );
+
     }
 
     /**
