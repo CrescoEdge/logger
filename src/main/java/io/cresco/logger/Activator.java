@@ -69,48 +69,6 @@ public final class Activator
     }
 
 
-    private ServiceComponentRuntime getServiceComponentRuntime(BundleContext srcBc) {
-
-        ServiceComponentRuntime serviceComponentRuntime = null;
-        try {
-
-            ServiceReference<?>[] servRefs = null;
-
-            while(servRefs == null) {
-                servRefs = srcBc.getServiceReferences(ServiceComponentRuntime.class.getName(), null);
-
-                if (servRefs == null || servRefs.length == 0) {
-
-                    System.out.println("ERROR: service runtime not found, this will cause problems with shutdown");
-                    Thread.sleep(1000);
-
-                } else {
-
-                    for (ServiceReference sr : servRefs) {
-
-                        System.out.println("BLAH");
-
-                        boolean assign = sr.isAssignableTo(srcBc.getBundle(), ServiceComponentRuntime.class.getName());
-                        if (assign) {
-
-                            ServiceReference scrServiceRef = srcBc.getServiceReference(ServiceComponentRuntime.class.getName());
-                            serviceComponentRuntime = (ServiceComponentRuntime) srcBc.getService(scrServiceRef);
-
-                        } else {
-                            System.out.println("Unable to assign service runtime");
-                        }
-
-                    }
-                }
-            }
-
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        return serviceComponentRuntime;
-    }
-
     private Bundle installInternalBundleJars(BundleContext context, String bundleName) {
 
 
