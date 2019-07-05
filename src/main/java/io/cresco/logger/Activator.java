@@ -68,7 +68,6 @@ public final class Activator
         updateConfiguration( bundleContext, "%-4r [%t] %-5p %c %x - %m%n" );
     }
 
-
     private Bundle installInternalBundleJars(BundleContext context, String bundleName) {
 
 
