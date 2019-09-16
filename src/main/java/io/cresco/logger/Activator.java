@@ -45,7 +45,8 @@ public final class Activator
         levelList.add("TRACE");
         levelList.add("ALL");
 
-        updateConfiguration( bundleContext, "%5p [%t] - %m%n" );
+        //updateConfiguration( bundleContext, "%5p [%t] - %m%n" );
+        updateConfiguration( bundleContext, "%d{dd MMM yyyy HH:mm:ss,SSS} %5p [%t] - %m%n" );
 
         installInternalBundleJars(bundleContext,"org.osgi.service.cm-1.6.0.jar").start();
         Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.1.jar");
