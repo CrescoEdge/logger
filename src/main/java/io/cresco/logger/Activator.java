@@ -113,6 +113,7 @@ public final class Activator
             rootLogLevel = "INFO";
         }
 
+
         ConfigurationAdmin configAdmin = getConfigurationAdmin( bundleContext );
         Configuration loggerConfig = configAdmin.getConfiguration( "org.ops4j.pax.logging", null );
 
