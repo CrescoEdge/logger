@@ -49,8 +49,8 @@ public final class Activator
         updateConfiguration( bundleContext, "%d{dd MMM yyyy HH:mm:ss,SSS} %5p [%t] - %m%n" );
 
         installInternalBundleJars(bundleContext,"org.osgi.service.cm-1.6.0.jar").start();
-        Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.1.jar");
-        Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.1.jar");
+        Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.4.jar");
+        Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.4.jar");
         loggerService.start();
         loggerAPI.start();
 
