@@ -50,7 +50,9 @@ public final class Activator
 
         installInternalBundleJars(bundleContext,"org.osgi.service.cm-1.6.0.jar").start();
         Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.4.jar");
+        //Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.11.3.jar");
         Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.4.jar");
+        //Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.11.3.jar");
         loggerService.start();
         loggerAPI.start();
 
@@ -113,12 +115,14 @@ public final class Activator
             rootLogLevel = "INFO";
         }
 
-
         ConfigurationAdmin configAdmin = getConfigurationAdmin( bundleContext );
         Configuration loggerConfig = configAdmin.getConfiguration( "org.ops4j.pax.logging", null );
 
         Hashtable<String, Object> log4jProps = new Hashtable<>();
+        //log4jProps.put( "log4j.rootLogger", rootLogLevel + ", CONSOLE, FILE, APP" );
         log4jProps.put( "log4j.rootLogger", rootLogLevel + ", CONSOLE, FILE" );
+
+        //log4jProps.put( "log4j.appender.APP","org.ops4j.pax.logging.extender.ZipRollingFileAppender");
 
         log4jProps.put( "log4j.appender.CONSOLE", "org.apache.log4j.ConsoleAppender" );
         log4jProps.put( "log4j.appender.CONSOLE.layout", "org.apache.log4j.PatternLayout" );
@@ -131,6 +135,8 @@ public final class Activator
         log4jProps.put( "log4j.appender.FILE.Append","true");
         log4jProps.put( "log4j.appender.FILE.layout","org.apache.log4j.PatternLayout");
         log4jProps.put( "log4j.appender.FILE.layout.conversionPattern", pattern);
+
+
 
         log4jProps.put( "log4j.category.org.apache.felix","ERROR");
         log4jProps.put( "log4j.category.org.ops4j.pax","ERROR");
@@ -155,6 +161,7 @@ public final class Activator
         log4jProps.put( "log4j.logger.org.apache.cxf","ERROR");
         log4jProps.put( "log4j.logger.org.osgi","OFF");
         log4jProps.put( "log4j.logger.osgi","OFF");
+        log4jProps.put( "log4j.logger.org.ops4j.pax.logging","OFF");
 
         loggerConfig.update( log4jProps );
 
@@ -178,5 +185,6 @@ public final class Activator
         }
         return (ConfigurationAdmin) bundleContext.getService( ref );
     }
+
 
 }
