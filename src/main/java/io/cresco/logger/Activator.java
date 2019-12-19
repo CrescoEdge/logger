@@ -27,7 +27,6 @@ public final class Activator
 {
     private List<String> levelList;
 
-
     /**
      * {@inheritDoc}
      * Configures Pax Logging via Configuration Admin.
