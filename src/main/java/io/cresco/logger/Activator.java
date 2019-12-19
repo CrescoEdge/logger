@@ -57,7 +57,6 @@ public final class Activator
 
     }
 
-
     /**
      * {@inheritDoc}
      * UnConfigures Pax Logging via Configuration Admin.
