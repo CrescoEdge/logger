@@ -15,7 +15,7 @@ import java.util.List;
 
 
 /**
- * Bundle Activator.<br/>
+ * Bundle Activator.
  * Looks up the Configuration Admin service and on activation will configure Pax Logging.
  * On deactivation will unconfigure Pax Logging.
  *
