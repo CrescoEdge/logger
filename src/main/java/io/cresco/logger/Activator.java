@@ -161,6 +161,9 @@ public final class Activator
         log4jProps.put( "log4j.logger.osgi","OFF");
         log4jProps.put( "log4j.logger.org.ops4j.pax.logging","OFF");
 
+
+        log4jProps.put( "log4j.logger.org.apache.felix.scr","ERROR");
+
         loggerConfig.update( log4jProps );
 
     }
