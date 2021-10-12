@@ -96,7 +96,6 @@ public final class Activator
         return installedBundle;
     }
 
-
     /**
      * Updates Pax Logging configuration to a specifid conversion pattern.
      *
