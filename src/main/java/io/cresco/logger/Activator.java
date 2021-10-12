@@ -135,7 +135,6 @@ public final class Activator
         log4jProps.put( "log4j.appender.FILE.layout.conversionPattern", pattern);
 
 
-
         log4jProps.put( "log4j.category.org.apache.felix","ERROR");
         log4jProps.put( "log4j.category.org.ops4j.pax","ERROR");
         //log4jProps.put( "log4j.category.com.orientechnologies","ERROR");
