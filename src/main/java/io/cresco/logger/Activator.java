@@ -9,6 +9,8 @@ import org.osgi.service.cm.ConfigurationAdmin;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -126,7 +128,15 @@ public final class Activator
         log4jProps.put( "log4j.appender.CONSOLE.layout.ConversionPattern", pattern );
 
         log4jProps.put( "log4j.appender.FILE","org.apache.log4j.FileAppender");
-        log4jProps.put( "log4j.appender.FILE.File","cresco-data/cresco-logs/main.log");
+
+        String cresco_data_location = System.getProperty("cresco_data_location");
+        if(cresco_data_location != null) {
+            Path path = Paths.get(cresco_data_location, "cresco-logs","main.log");
+            log4jProps.put( "log4j.appender.FILE.File",path.toAbsolutePath().normalize().toString());
+        } else {
+            log4jProps.put( "log4j.appender.FILE.File","cresco-data/cresco-logs/main.log");
+        }
+
         log4jProps.put( "log4j.appender.FILE.ImmediateFlush","true");
         //log4jProps.put( "log4j.appender.FILE.Threshold","ALL");
         log4jProps.put( "log4j.appender.FILE.Append","true");
