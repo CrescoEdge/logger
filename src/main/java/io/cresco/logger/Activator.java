@@ -28,6 +28,9 @@ public final class Activator
         implements BundleActivator
 {
     private List<String> levelList;
+    private Bundle loggerService;
+    private Bundle loggerAPI;
+    private Bundle osgiService;
 
     /**
      * {@inheritDoc}
@@ -49,10 +52,11 @@ public final class Activator
         //updateConfiguration( bundleContext, "%5p [%t] - %m%n" );
         updateConfiguration( bundleContext, "%d{dd MMM yyyy HH:mm:ss,SSS} %5p [%t] - %m%n" );
 
-        installInternalBundleJars(bundleContext,"org.osgi.service.cm-1.6.0.jar").start();
-        Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.4.jar");
+        osgiService = installInternalBundleJars(bundleContext,"org.osgi.service.cm-1.6.0.jar");
+        osgiService.start();
+        loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.4.jar");
         //Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.11.3.jar");
-        Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.4.jar");
+        loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.4.jar");
         //Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.11.3.jar");
         loggerService.start();
         loggerAPI.start();
@@ -66,12 +70,13 @@ public final class Activator
     public void stop( final BundleContext bundleContext )
             throws Exception
     {
+        loggerAPI.stop();
+        loggerService.stop();
+        osgiService.stop();
         updateConfiguration( bundleContext, "%-4r [%t] %-5p %c %x - %m%n" );
     }
 
     private Bundle installInternalBundleJars(BundleContext context, String bundleName) {
-
-
 
         Bundle installedBundle = null;
         try {
