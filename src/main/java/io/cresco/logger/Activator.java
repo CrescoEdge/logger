@@ -54,10 +54,15 @@ public final class Activator
 
         osgiService = installInternalBundleJars(bundleContext,"org.osgi.service.cm-1.6.0.jar");
         osgiService.start();
-        loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.4.jar");
-        //Bundle loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.11.3.jar");
-        loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.4.jar");
-        //Bundle loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.11.3.jar");
+
+        //loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.11.17.jar");
+        //loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.11.17.jar");
+
+        //loggerService = installInternalBundleJars(bundleContext,"pax-logging-service-1.10.4.jar");
+        //loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-1.10.4.jar");
+        loggerService = installInternalBundleJars(bundleContext,"pax-logging-log4j2-2.2.7.jar");
+        loggerAPI = installInternalBundleJars(bundleContext,"pax-logging-api-2.2.7.jar");
+
         loggerService.start();
         loggerAPI.start();
 
