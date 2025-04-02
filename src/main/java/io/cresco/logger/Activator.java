@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
-
 /**
  * Bundle Activator.<br/>
  * Looks up the Configuration Admin service and on activation will configure Pax Logging.
