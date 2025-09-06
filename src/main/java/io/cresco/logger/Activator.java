@@ -139,7 +139,6 @@ public final class Activator
             log4jProps.put( "log4j.rootLogger", rootLogLevel + ", CONSOLE, FILE" );
 
             //log4jProps.put( "log4j.appender.APP","org.ops4j.pax.logging.extender.ZipRollingFileAppender");
-
             log4jProps.put( "log4j.appender.CONSOLE", "org.apache.log4j.ConsoleAppender" );
             log4jProps.put( "log4j.appender.CONSOLE.layout", "org.apache.log4j.PatternLayout" );
             log4jProps.put( "log4j.appender.CONSOLE.layout.ConversionPattern", pattern );
