@@ -25,24 +25,21 @@
     </licenses>
 
     <properties>
-        <!-- jdk, encoding, plugin versions inherited from cresco-parent -->
-        <!-- logger pins the R7 OSGi API (Log 1.4 / LoggerFactory); kept explicit until the R8 phase -->
-        <logger.osgi.version>7.0.0</logger.osgi.version>
+        <!-- jdk, encoding, plugin & OSGi API versions inherited from cresco-parent -->
     </properties>
 
     <dependencies>
 
+        <!-- R8 core API; R7 compendium aggregate (provides org.osgi.service.log + cm) -->
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.core</artifactId>
-            <version>${logger.osgi.version}</version>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.cmpn</artifactId>
-            <version>${logger.osgi.version}</version>
             <scope>provided</scope>
         </dependency>
 
