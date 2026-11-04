@@ -20,7 +20,7 @@ import java.util.List;
  * Configuration Admin (PID {@code org.ops4j.pax.logging}) using the log4j2 properties format.
  *
  * Originally based on the Pax Logging sample activator by Alin Dreghiciu; migrated from
- * Pax Logging 1.10.4 / log4j1 (SLF4J 1.7) to Pax Logging 2.2.8 / log4j2 (SLF4J 2.0).
+ * Pax Logging 1.10.4 / log4j1 (SLF4J 1.7) to Pax Logging 2.2.12 / log4j2 2.25.4 (SLF4J 2.0).
  */
 public final class Activator implements BundleActivator {
 
@@ -42,8 +42,8 @@ public final class Activator implements BundleActivator {
         osgiService = installInternalBundleJars(bundleContext, "org.osgi.service.cm-1.6.0.jar");
         osgiService.start();
 
-        loggerAPI = installInternalBundleJars(bundleContext, "pax-logging-api-2.2.8.jar");
-        loggerBackend = installInternalBundleJars(bundleContext, "pax-logging-log4j2-2.2.8.jar");
+        loggerAPI = installInternalBundleJars(bundleContext, "pax-logging-api-2.2.12.jar");
+        loggerBackend = installInternalBundleJars(bundleContext, "pax-logging-log4j2-2.2.12.jar");
         loggerAPI.start();
         loggerBackend.start();
     }
